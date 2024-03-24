@@ -12,6 +12,7 @@ class Plat extends Model
     protected $table    = "plat";
 
     protected $fillable = [
+        "Id_Plat_categorie",
         "Nom",
         "Description",
         "Id_statut",

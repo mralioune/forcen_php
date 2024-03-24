@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('plat', function (Blueprint $table) {
             $table->id("Id");
+            $table->string("Id_plat_categorie");
             $table->string("Nom");
             $table->string("Description");
             $table->integer("Id_statut");
