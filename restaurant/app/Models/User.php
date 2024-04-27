@@ -25,6 +25,9 @@ class User extends Authenticatable
         'id_role',
         'id_statut',
         'password',
+        'tokens_mail',
+        'valide_tokens_mail',
+        
     ];
 
     /**
@@ -46,4 +49,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    static function generateToken($length = 32) {
+        // Générer un identifiant unique
+        $token = uniqid();
+    
+        // Convertir l'identifiant en hexadécimal
+        $token = bin2hex($token);
+    
+        // Tronquer la chaîne au nombre de caractères souhaité
+        $token = substr($token, 0, $length);
+    
+        return $token;
+    }
 }

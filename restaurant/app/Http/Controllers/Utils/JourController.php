@@ -30,7 +30,7 @@ class JourController extends Controller
 
     public function afficheId ($Id)
     {
-        $Jours = Jour::find($Id);
+        $Jours = Jour::where('Id',$Id)->get();
         if($Jours->count() > 0){
 
             return response()->json([
@@ -50,7 +50,7 @@ class JourController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Jours = Jour::find($Id_statut);
+        $Jours = Jour::where('Id_statut',$Id_statut)->get();
         if($Jours->count() > 0){
 
             return response()->json([

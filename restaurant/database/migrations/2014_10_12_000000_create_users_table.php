@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->integer('id_role');
             $table->integer('id_statut');
+            $table->string('tokens_mail');
+            $table->integer("valide_tokens_mail");
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

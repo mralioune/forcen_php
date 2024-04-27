@@ -24,16 +24,5 @@ class Users_client extends Model
         "Date_inscription"
     ];
     
-    static function generateToken($length = 32) {
-        // Générer un identifiant unique
-        $token = uniqid();
-    
-        // Convertir l'identifiant en hexadécimal
-        $token = bin2hex($token);
-    
-        // Tronquer la chaîne au nombre de caractères souhaité
-        $token = substr($token, 0, $length);
-    
-        return $token;
-    }
+   
 }

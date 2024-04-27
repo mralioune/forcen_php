@@ -28,9 +28,9 @@ class Type_commandesController extends Controller
     }
 
 
-    public function afficheId ($id)
+    public function afficheId ($Id)
     {
-        $Type_commandes = Type_commande::find($id);
+        $Type_commandes = Type_commande::where('Id',$Id)->get();
         if($Type_commandes->count() > 0){
 
             return response()->json([
@@ -48,7 +48,7 @@ class Type_commandesController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Type_commandes = Type_commande::find($Id_statut);
+        $Type_commandes = Type_commande::where('Id_statut',$Id_statut)->get();
         if($Type_commandes->count() > 0){
 
             return response()->json([

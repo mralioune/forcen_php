@@ -30,7 +30,7 @@ class PlatController extends Controller
 
     public function afficheId ($Id)
     {
-        $Plats = Plat::find($Id);
+        $Plats = Plat::where('Id',$Id)->get();
         if($Plats->count() > 0){
 
             return response()->json([
@@ -50,7 +50,7 @@ class PlatController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Plats = Plat::find($Id_statut);
+        $Plats = Plat::where('Id_statut',$Id_statut)->get();
         if($Plats->count() > 0){
 
             return response()->json([
@@ -68,7 +68,7 @@ class PlatController extends Controller
 
     public function affichePlatCategorie ($Id_plat_categorie)
     {
-        $Plats = Plat::find($Id_plat_categorie);
+        $Plats = Plat::where('Id_plat_categorie',$Id_plat_categorie)->get();
         if($Plats->count() > 0){
 
             return response()->json([
@@ -86,7 +86,7 @@ class PlatController extends Controller
 
      public function affichePlatCategorieStatuts ($Id_plat_categorie,$Id_statut)
     {
-        $Plats = Plat::find($Id_plat_categorie,$Id_statut);
+        $Plats = Plat::where('Id_plat_categorie',$Id_plat_categorie)->where('Id_statut',$Id_statut)->get();
         if($Plats->count() > 0){
 
             return response()->json([

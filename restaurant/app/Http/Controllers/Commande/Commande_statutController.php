@@ -30,7 +30,7 @@ class Commande_statutController extends Controller
 
     public function afficheId ($Id)
     {
-        $Commande_statuts = Commande_statut::find($Id);
+        $Commande_statuts = Commande_statut::where('Id',$Id)->get();
         if($Commande_statuts->count() > 0){
 
             return response()->json([
@@ -50,7 +50,7 @@ class Commande_statutController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Commande_statuts = Commande_statut::find($Id_statut);
+        $Commande_statuts = Commande_statut::where('Id_statut',$Id_statut)->get();
         if($Commande_statuts->count() > 0){
 
             return response()->json([

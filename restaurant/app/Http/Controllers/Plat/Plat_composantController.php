@@ -30,7 +30,7 @@ class Plat_composantController extends Controller
 
     public function afficheId ($Id)
     {
-        $Plat_composants = Plat_composant::find($Id);
+        $Plat_composants = Plat_composant::where('Id',$Id)->get();
         if($Plat_composants->count() > 0){
 
             return response()->json([
@@ -50,7 +50,7 @@ class Plat_composantController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Plat_composants = Plat_composant::find($Id_statut);
+        $Plat_composants = Plat_composant::where('Id_statut',$Id_statut)->get();
         if($Plat_composants->count() > 0){
 
             return response()->json([
@@ -68,7 +68,7 @@ class Plat_composantController extends Controller
 
     public function affichePlat ($Id_plat)
     {
-        $Plat_composants = Plat_composant::find($Id_plat);
+        $Plat_composants = Plat_composant::where('Id_plat',$Id_plat)->get();
         if($Plat_composants->count() > 0){
 
             return response()->json([
@@ -86,7 +86,7 @@ class Plat_composantController extends Controller
 
      public function affichePlatStatuts ($Id_plat,$Id_statut)
     {
-        $Plat_composants = Plat_composant::find($Id_plat,$Id_statut);
+        $Plat_composants = Plat_composant::where('Id_plat',$Id_plat)->where('Id_plat',$Id_statut)->get();
         if($Plat_composants->count() > 0){
 
             return response()->json([

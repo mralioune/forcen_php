@@ -30,7 +30,7 @@ class TableController extends Controller
 
     public function afficheId ($Id)
     {
-        $Tables = Table::find($Id);
+        $Tables = Table::where('Id',$Id)->get();
         if($Tables->count() > 0){
 
             return response()->json([
@@ -50,7 +50,7 @@ class TableController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Tables = Table::find($Id_statut);
+        $Tables = Table::where('Id_statut',$Id_statut)->get();
         if($Tables->count() > 0){
 
             return response()->json([
@@ -68,7 +68,7 @@ class TableController extends Controller
 
     public function afficheSalle ($Id_salle)
     {
-        $Tables = Table::find($Id_salle);
+        $Tables = Table::where('Id_salle',$Id_salle)->get();
         if($Tables->count() > 0){
 
             return response()->json([
@@ -85,7 +85,7 @@ class TableController extends Controller
     }
     public function afficheSalleStatut ($Id_salle,$Id_statut)
     {
-        $Tables = Table::find($Id_salle,$Id_statut);
+        $Tables = Table::where('Id_salle',$Id_salle)->where('Id_statut',$Id_statut)->get();
         if($Tables->count() > 0){
 
             return response()->json([

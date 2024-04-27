@@ -11,7 +11,7 @@ class Commande_usersController extends Controller
     //
     public function afficheId ($Id)
     {
-        $Commande_users = Commande_users::find($Id);
+        $Commande_users = Commande_users::where('Id',$Id)->get();
         if($Commande_users->count() > 0){
 
             return response()->json([
@@ -31,7 +31,7 @@ class Commande_usersController extends Controller
 
     public function afficheCommande ($Id_commande)
     {
-        $Commande_users = Commande_users::find($Id_commande);
+        $Commande_users = Commande_users::where('Id_commande',$Id_commande)->get();
         if($Commande_users->count() > 0){
 
             return response()->json([

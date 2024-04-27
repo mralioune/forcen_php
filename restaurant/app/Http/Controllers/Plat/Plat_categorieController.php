@@ -30,7 +30,7 @@ class Plat_categorieController extends Controller
 
     public function afficheId ($Id)
     {
-        $Plat_categories = Plat_categorie::find($Id);
+        $Plat_categories = Plat_categorie::where('Id',$Id)->get();
         if($Plat_categories->count() > 0){
 
             return response()->json([
@@ -48,7 +48,7 @@ class Plat_categorieController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Plat_categories = Plat_categorie::find($Id_statut);
+        $Plat_categories = Plat_categorie::where('Id_statut',$Id_statut)->get();
         if($Plat_categories->count() > 0){
 
             return response()->json([

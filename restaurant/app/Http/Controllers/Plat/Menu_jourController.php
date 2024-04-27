@@ -30,7 +30,7 @@ class Menu_jourController extends Controller
 
     public function afficheId ($Id)
     {
-        $Menu_jours = Menu_jour::find($Id);
+        $Menu_jours = Menu_jour::where('Id',$Id)->get();
         if($Menu_jours->count() > 0){
 
             return response()->json([
@@ -50,7 +50,7 @@ class Menu_jourController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Menu_jours = Menu_jour::find($Id_statut);
+        $Menu_jours = Menu_jour::where('Id_statut',$Id_statut)->get();
         if($Menu_jours->count() > 0){
 
             return response()->json([
@@ -68,7 +68,7 @@ class Menu_jourController extends Controller
 
     public function affichePlat ($Id_plat)
     {
-        $Menu_jours = Menu_jour::find($Id_plat);
+        $Menu_jours = Menu_jour::where('Id_plat',$Id_plat)->get();
         if($Menu_jours->count() > 0){
 
             return response()->json([
@@ -86,7 +86,7 @@ class Menu_jourController extends Controller
 
     public function afficheJour ($Id_jour)
     {
-        $Menu_jours = Menu_jour::find($Id_jour);
+        $Menu_jours = Menu_jour::where('Id_jour',$Id_jour)->get();
         if($Menu_jours->count() > 0){
 
             return response()->json([
@@ -104,7 +104,7 @@ class Menu_jourController extends Controller
 
      public function affichePlatStatuts ($Id_plat,$Id_statut)
     {
-        $Menu_jours = Menu_jour::find($Id_plat,$Id_statut);
+        $Menu_jours = Menu_jour::where('Id',$Id_plat)->where('Id_statut',$Id_statut)->get();
         if($Menu_jours->count() > 0){
 
             return response()->json([
@@ -121,7 +121,7 @@ class Menu_jourController extends Controller
     }
     public function afficheJouStatuts ($Id_jour,$Id_statut)
     {
-        $Menu_jours = Menu_jour::find($Id_jour,$Id_statut);
+        $Menu_jours = Menu_jour::where('Id_jour',$Id_jour)->where('Id_statut',$Id_statut)->get();
         if($Menu_jours->count() > 0){
 
             return response()->json([

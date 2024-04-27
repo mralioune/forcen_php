@@ -30,7 +30,7 @@ class SalleController extends Controller
 
     public function afficheId ($Id)
     {
-        $Salles = Salle::find($Id);
+        $Salles = Salle::where('Id',$Id)->get();
         if($Salles->count() > 0){
 
             return response()->json([
@@ -48,7 +48,7 @@ class SalleController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Salles = Salle::find($Id_statut);
+        $Salles = Salle::where('Id_statut',$Id_statut)->get();
         if($Salles->count() > 0){
 
             return response()->json([

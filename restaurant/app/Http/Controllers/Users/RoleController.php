@@ -29,8 +29,8 @@ class RoleController extends Controller
 
 
     public function afficheId ($id)
-    {
-        $Roles = Role::find($id);
+    {  
+        $Roles = Role::where('id',$id)->get();
         if($Roles->count() > 0){
 
             return response()->json([
@@ -48,7 +48,7 @@ class RoleController extends Controller
 
     public function afficheStatuts ($Id_statut)
     {
-        $Roles = Role::find($Id_statut);
+        $Roles = Role::where('Id_statut',$Id_statut);
         if($Roles->count() > 0){
 
             return response()->json([

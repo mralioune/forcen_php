@@ -12,7 +12,7 @@ class Commande_details_detailsController extends Controller
 
     public function afficheId ($Id)
     {
-        $Commande_details = Commande_details::find($Id);
+        $Commande_details = Commande_details::where('Id',$Id)->get();
         if($Commande_details->count() > 0){
 
             return response()->json([
@@ -32,7 +32,7 @@ class Commande_details_detailsController extends Controller
 
     public function afficheCommande ($Id_commande)
     {
-        $Commande_details = Commande_details::find($Id_commande);
+        $Commande_details = Commande_details::where('Id_commande',$Id_commande)->get();
         if($Commande_details->count() > 0){
 
             return response()->json([
