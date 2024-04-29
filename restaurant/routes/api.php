@@ -26,3 +26,7 @@ Route::post("user",[UserController::class,"ajouter"]);
 
 Route::put("userid/{id}",[UserController::class,"afficheId"]);
 Route::post("userConnection",[UserController::class,"connection"]);
+
+Route::post('/cart/add', [UserController::class,'addToCart']);
+Route::delete('/cart/remove/{productId}', [UserController::class,'removeProductFromCart']);
+Route::get('/cart/display', [UserController::class,'displayCart']);

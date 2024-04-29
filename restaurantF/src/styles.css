@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Inter:wght@100..900&family=Stick&family=Waiting+for+the+Sunrise&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stick&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Stick&family=Waiting+for+the+Sunrise&display=swap');
+:root {
+    --color-primary: #EBA543;
+    --color-secondary:#94A560;
+    --font-1:"Inter", sans-serif;
+    --font-2:"Stick", sans-serif;
+    --font-3:"Coming Soon", cursive;
+  }
+*{
+  margin: 0;
+  padding: 0;
+}
+  
+body {
+  display: flex;
+   flex-direction: column;
+    font-family: var(--font-1);
+    font-size: 12px;
+    background-color: #F9F9F9;
+}
+.navbar.main {
+  background-color:rgba(0, 0, 0, 0.5)!important;
+
+}
+.topbar{
+  margin-top: 60px;
+}
+.navbar {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    color: white !important;
+  }
+  .navbar-nav {
+    margin-left: auto;
+  }
+  .nav-link.main{
+    color: white;
+
+  }
+  .nav-link{
+    font-size: 16px;
+  }
+  .nav-link:active, .nav-link:hover{
+    color: var(--color-primary) !important;
+    font-weight: bold;
+    transform: scale(0.9);
+    animation: 2s all ease;
+  }
+  .carousel{
+    position: relative;
+  }
+  .carousel img{
+    object-fit: cover;
+    height: 90vh !important;
+
+  }
+  .bottom-section{
+    position: absolute;
+    display: inline-block;
+    margin: 0 auto;
+    width:  100%;
+    text-align: center;
+    bottom: 30px;
+  }
+  .carousel-caption h5 {
+    font-size: 60px;
+    font-family: var(--font-2);
+    color: white;
+    text-shadow: 0 0 5px black;
+
+    /* -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+    -webkit-text-size-adjust: auto; */
+  }
+  .titlemenu{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .price {
+    font-family: var(--font-3);
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .curency {
+    
+    font-size: 12px;
+  }
+  .carousel-caption p {
+    margin: 20px auto;
+    font-family: var(--font-3);
+    font-weight: 400;
+    font-size: 1rem;
+    width: 80%;
+    text-shadow: 0 0 5px black;
+  }
+  .connexion{
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+  }
+  .connexion .logo {
+    margin: 1rem auto;
+    box-sizing: border-box;
+  }
+  .connexion .card {
+    width: 40vw;
+    min-width: 360px !important;
+    margin: 10vh auto;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .connexion .form-group a {
+    text-decoration: none;
+    padding: 5px; 
+    color: black !important;
+  }
+  .menu.element{
+    max-width: 100% !important;
+    max-height: 550px;
+    overflow-y: auto;
+  }
+  .menu.element .cover{
+    height: 500px;
+  }
+  .menu{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    max-width: 400px;
+    padding: 0;
+    margin-bottom: 25px;
+  }
+  .headermenu{
+    font-family: var(--font-2);
+    font-size: 40px;
+    color: var(--color-primary);
+  }
+  .menu .cover{
+    margin: 0;
+    height: 380px;
+    overflow: hidden;
+  }
+  .menu img, .coverplat img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 !important ;
+
+  }
+  
+  .plat{
+    width: 300px;
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+  .coverplat{
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .coverplat .commande{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    padding: 1rem;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+  .coverplat:hover .commande{
+    display: block;
+  }
+  .titalic{
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+  }
+  footer{
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  footer a{
+    color: black;
+    text-decoration: none;
+  }
+  footer a:hover{
+    font-weight: bold ;
+  }
+  

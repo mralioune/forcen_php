@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('commande', function (Blueprint $table) {
             $table->id("Id");
-            $table->string("Numero_reférence");
+            $table->string("Numero_reference");
             $table->integer("Montant");
             $table->integer("Id_users_client");
             $table->dateTime("Date_save");

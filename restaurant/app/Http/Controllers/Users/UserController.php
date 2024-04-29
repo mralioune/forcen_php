@@ -33,7 +33,7 @@ class UserController extends Controller
     public function afficheId ($id)
     {
         
-        $Users = User::where('id',$id)->get();
+        $Users = User::where('Id',$id)->get();
         if($Users->count() > 0){
 
             return response()->json([
