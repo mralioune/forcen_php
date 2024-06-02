@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Table;
+namespace App\Http\Controllers\Salle;
 
 use App\Http\Controllers\Controller;
 use App\Models\Table;
@@ -49,8 +49,9 @@ class TableController extends Controller
 
     
 
-    public function afficheStatuts ($Id_statut)
+    public function afficheStatuts ()
     {
+        $Id_statut=1;
         $Tables = Table::where('Id_statut',$Id_statut)->get();
         if($Tables->count() > 0){
 
@@ -67,7 +68,7 @@ class TableController extends Controller
         }
     }
 
-    public function afficheSalle ($Id_salle)
+    public function afficheTableSalle ($Id_salle)
     {
         $Tables = Table::where('Id_salle',$Id_salle)->get();
         if($Tables->count() > 0){
@@ -118,7 +119,7 @@ class TableController extends Controller
             ],422) ;
         }else {
             # code...generateToken
-            $TableExist = Table::where('Nom', $request->Nom)->get();
+            $TableExist = Table::where('Nom', $request->Nom)->where('Id_salle', $request->Id_salle)->first();
             if($TableExist)
             {
                 return response()->json([
@@ -130,7 +131,7 @@ class TableController extends Controller
                
            
                 $Tables = Table::create([
-                    "Nom" => $request->Nom,
+                    "Nom" => strtolower($request->Nom),
                     "Id_salle" => $request->Id_salle,
                     "Id_users_admin" => $request->Id_users_admin,
                     "Id_statut" => 1,
@@ -142,7 +143,7 @@ class TableController extends Controller
 
                     return response()->json([
                         'statut'=> 200,
-                        'Tables'=> "vous venez d'ajouter unr Tables"
+                        'Tables'=> "vous venez d'ajouter une Tables"
                     ],200) ;
                 }else{
         
@@ -175,7 +176,7 @@ class TableController extends Controller
             $Users = Table::find($Id);
             if($Users){
                 $Users->update([
-                    "Nom" => $request->Nom,
+                    "Nom" => strtolower($request->Nom),
                     "Id_statut" => $request->Id_statut,
                     "Date_save" =>  date("Y-m-d H:i:s")
                 ]);

@@ -3,6 +3,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Users\Users_clientController;
 use App\Http\Controllers\Users\UserController;
 /*
@@ -15,11 +16,17 @@ use App\Http\Controllers\Users\UserController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*
+Route::middleware('ClientMiddleware')->get('/client', function (Request $request) {
     return $request->user();
 });
+*/
 include 'admin/user.php';
+include 'admin/salle.php';
+include 'admin/table.php';
+include 'admin/jour.php';
+include 'admin/plat_categorie.php';
+
 
 //Route::get("user",[UserController::class,"afficheTout"]);
 //Route::post("user_add",[Users_clientController::class,"ajouter"]);

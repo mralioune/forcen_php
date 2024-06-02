@@ -47,8 +47,9 @@ class SalleController extends Controller
         }
     }
 
-    public function afficheStatuts ($Id_statut)
+    public function afficheStatuts ()
     {
+        $Id_statut=1;
         $Salles = Salle::where('Id_statut',$Id_statut)->get();
         if($Salles->count() > 0){
 
@@ -80,7 +81,7 @@ class SalleController extends Controller
             ],422) ;
         }else {
             # code...generateToken
-            $SalleExist = Salle::where('Nom', $request->Nom)->get();
+            $SalleExist = Salle::where('Nom', $request->Nom)->first();
             if($SalleExist)
             {
                 return response()->json([
@@ -92,7 +93,7 @@ class SalleController extends Controller
                
            
                 $Salles = Salle::create([
-                    "Nom" => $request->Nom,
+                    "Nom" => strtolower($request->Nom),
                     "Id_users_admin" => $request->Id_users_admin,
                     "Id_statut" => 1,
                     "Date_save" =>  date("Y-m-d H:i:s")
@@ -136,10 +137,15 @@ class SalleController extends Controller
             $Salles = Salle::find($Id);
             if($Salles){
                 $Salles->update([
-                    "Nom" => $request->Nom,
+                    "Nom" => strtolower($request->Nom),
                     "Id_statut" => $request->Id_statut,
                     "Date_save" =>  date("Y-m-d H:i:s")
                 ]);
+
+                return response()->json([
+                    'statut'=> 500,
+                    'Salles'=> " modification effectuer"
+                ],500) ;
 
             }
             else{

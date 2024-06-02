@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('plat_categorie', function (Blueprint $table) {
             $table->id("Id");
             $table->string("Nom");
-            $table->string("Description");
+            $table->string("Description")->nullable();
             $table->integer("Id_statut");
             $table->integer("Id_users_admin");
             $table->dateTime("Date_save");

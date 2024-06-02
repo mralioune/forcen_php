@@ -11,8 +11,9 @@ class MailerMessaging extends Model
 {
     use HasFactory;//sendMail
 
-    static function sendMail($mail,$name,$subject, $msgtxt, )
+    static function sendMail($mail,$name,$subject, $msgtxt)
     {
+        
         $msg =  MailerMessaging::FormatRamahMsg($name,$subject,$msgtxt);
         $error = MailerMessaging::confidMail($mail, $subject, $msg);
         return $error;
@@ -25,6 +26,8 @@ class MailerMessaging extends Model
         try {
             // Configuration du serveur SMTP
             $mail->isSMTP();
+            $mail->CharSet = "utf-8";
+            
             $mail->Host = env('MAIL_HOST');
             $mail->Port = env('MAIL_PORT');
             $mail->SMTPAuth = true;
@@ -32,6 +35,7 @@ class MailerMessaging extends Model
             $mail->Password = env('MAIL_PASSWORD');
             $mail->SMTPSecure = env('MAIL_ENCRYPTION');
 
+            
             // Destinataire
             $mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
             $mail->addAddress($to);
@@ -49,9 +53,9 @@ class MailerMessaging extends Model
         }
     }
 
-    function FormatRamahMsg($des,$subject,$msgtext)
+    static function FormatRamahMsg($des,$subject,$msgtext)
     {
-        $return = '
+        return  '
                  <!DOCTYPE html >
                  <html >
                      <head>

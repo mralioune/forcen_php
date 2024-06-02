@@ -49,8 +49,9 @@ class JourController extends Controller
 
     
 
-    public function afficheStatuts ($Id_statut)
+    public function afficheStatuts ()
     {
+        $Id_statut=1;
         $Jours = Jour::where('Id_statut',$Id_statut)->get();
         if($Jours->count() > 0){
 
@@ -80,8 +81,9 @@ class JourController extends Controller
                 'Jours'=>$validation->messages(),
             ],422) ;
         }else {
+           
             # code...generateToken
-            $userExist = Jour::where('Nom', $request->Nom)->get();
+            $userExist = Jour::where('Nom', $request->Nom)->first();
             if($userExist)
             {
                 return response()->json([
@@ -93,10 +95,11 @@ class JourController extends Controller
                
            
                 $Users = Jour::create([
-                    "Nom" => $request->Nom,
-                    "id_statut" => 1,
-                    "Date_save" =>  date("Y-m-d H:i:s")
+                    "Nom" => strtolower($request->Nom),
+                    "Id_statut" => 1,
+                    "Date_save" => date("Y-m-d H:i:s")
                 ]);
+
 
                 if($Users)
                 {

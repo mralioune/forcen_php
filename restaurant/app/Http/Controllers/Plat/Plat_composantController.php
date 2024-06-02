@@ -120,7 +120,7 @@ class Plat_composantController extends Controller
             ],422) ;
         }else {
             # code...generateToken
-            $Plat_composantExist = Plat_composant::where('Nom', $request->Nom)->get();
+            $Plat_composantExist = Plat_composant::where('Nom', $request->Nom)->first();
             if($Plat_composantExist)
             {
                 return response()->json([

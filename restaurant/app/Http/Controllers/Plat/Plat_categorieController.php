@@ -70,7 +70,6 @@ class Plat_categorieController extends Controller
        
         $validation = Validator::make($request->all(),[
             "Nom" =>"required|string|max:255",
-            "Id_plat_categorie" =>"required|string|max:255",
             "Description" =>"required|string|max:555",
             "Id_users_admin" =>"required|string|max:255",
         ]);
@@ -82,7 +81,7 @@ class Plat_categorieController extends Controller
             ],422) ;
         }else {
             # code...generateToken
-            $Plat_categorieExist = Plat_categorie::where('Nom', $request->Nom)->get();
+            $Plat_categorieExist = Plat_categorie::where('Nom', $request->Nom)->first();
             if($Plat_categorieExist)
             {
                 return response()->json([
@@ -94,8 +93,7 @@ class Plat_categorieController extends Controller
                
            
                 $Plat_categories = Plat_categorie::create([
-                    "Nom" => $request->Nom,
-                    "Id_plat_categorie" => $request->Id_plat_categorie,
+                    "Nom" => strtolower($request->Nom),
                     "Description" => $request->Description,
                     "Id_users_admin" => $request->Id_users_admin,
                     "Id_statut" => 1,

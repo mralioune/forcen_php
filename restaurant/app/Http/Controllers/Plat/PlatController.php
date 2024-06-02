@@ -120,7 +120,7 @@ class PlatController extends Controller
             ],422) ;
         }else {
             # code...generateToken
-            $PlatExist = Plat::where('Nom', $request->Nom)->get();
+            $PlatExist = Plat::where('Nom', $request->Nom)->first();
             if($PlatExist)
             {
                 return response()->json([

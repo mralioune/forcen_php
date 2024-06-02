@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Users\Users_clientController;
+use App\Http\Controllers\Users\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+
+
+Route::get('/', function () {
+    return $request->user();
+   // return view('welcome');
+});
+include 'client/user.php';
+/*
 Route::get('acceuil',function(){
     return " ma page d'acceuil";
-});
+});*/
